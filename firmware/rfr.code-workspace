@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "esp_test",
+			"path": "esp_test"
+		},
+		{
+			"name": "camera_test",
+			"path": "camera_test"
+		},
+		{
+			"name": "rfrv1",
+			"path": "rfrv1"
+		}
+	]
+}
