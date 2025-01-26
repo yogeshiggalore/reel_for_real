@@ -1,0 +1,35 @@
+function doPost(e) {
+  var myFoldername = e.parameter.myFoldername || 'rfrv1';
+  var myFile = e.parameter.myFile;
+  var myFilename = Utilities.formatDate(new Date(), "GMT+8", "yyyyMMddHHmmss")+"_"+e.parameter.myFilename;
+  
+  var contentType = myFile.substring(myFile.indexOf(":")+1, myFile.indexOf(";"));
+  var data = myFile.substring(myFile.indexOf(",")+1);
+  data = Utilities.base64Decode(data);
+  var blob = Utilities.newBlob(data, contentType, myFilename);
+  
+  var folder, folders = DriveApp.getFoldersByName(myFoldername);
+  if (folders.hasNext()) {
+    folder = folders.next();
+  } else {
+    folder = DriveApp.createFolder(myFoldername);
+  }
+  var file = folder.createFile(blob);    
+  file.setDescription("Uploaded by " + myFilename);
+  
+  var imageID = file.getUrl().substring(file.getUrl().indexOf("/d/")+3,file.getUrl().indexOf("view")-1);
+  var imageUrl = "https://drive.google.com/uc?authuser=0&id="+imageID; 
+    
+  return  ContentService.createTextOutput(myFoldername+"/"+myFilename+"\n"+imageUrl);
+}
+
+AKfycbydLTt433BMQjpGfHPiKKLWf9es1YfhPcT0rZGasuyK-DOtueYb5xjyl3UDjwxPBswZGg
+
+https://script.google.com/macros/s/AKfycbydLTt433BMQjpGfHPiKKLWf9es1YfhPcT0rZGasuyK-DOtueYb5xjyl3UDjwxPBswZGg/exec
+
+
+
+https://script.google.com/macros/s/AKfycbyitDjCLcofTFGCRIiRLfP36j3FTb1g4heSgOV-FW2mP89xaiv5EBoA8XLqXjS70B1_AA/exec
+
+
+https://script.google.com/macros/s/AKfycbw3lw-59dYEDBehsweJWzQsjvhm2QBX-rzrQLVcuWrUA-z5wsRHxWUSj7iy0U-0fLPfoA/exec
